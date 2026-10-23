@@ -348,18 +348,27 @@ async function deleteProduct(id) {
       .filter(Boolean);
 
     // 5. Supprimer les images du Storage
-    if (storagePaths.length > 0) {
-      const { error: storageError } = await db.storage
-        .from("product-images")
-        .remove(storagePaths);
+    const storagePaths = imageUrls
+  .map(getProductImageStoragePath)
+  .filter(Boolean);
 
-      if (storageError) {
-        console.error(
-          "Produit supprimé, mais certaines images n'ont pas pu être supprimées.",
-          storageError
-        );
-      }
-    }
+console.log("Images URLs :", imageUrls);
+console.log("Storage paths :", storagePaths);
+
+if (storagePaths.length > 0) {
+  const { error: storageError } = await db.storage
+    .from("product-images")
+    .remove(storagePaths);
+
+  if (storageError) {
+    console.error("Erreur suppression Storage :", storageError);
+
+    alert(
+      "Le produit a été supprimé, mais les images n'ont pas pu être supprimées.\n\n" +
+      storageError.message
+    );
+  }
+}
 
     alert("Produit supprimé avec succès ✓");
 
