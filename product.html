@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Produit - SOVA Store</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a class="logo" href="index.html">SOVA.</a>
+
+      <button class="cart-button" onclick="toggleCart()">
+        🛒 Panier
+        <span id="cartCount">0</span>
+      </button>
+    </header>
+
+    <main>
+      <section class="section product-page">
+        <a href="index.html#products" class="back-link">
+          ← Retour aux produits
+        </a>
+
+        <div id="productDetails">Chargement...</div>
+      </section>
+    </main>
+
+    <aside id="cart" class="cart">
+      <div class="cart-head">
+        <h2>Panier</h2>
+        <button onclick="toggleCart()">✕</button>
+      </div>
+
+      <div id="cartItems"></div>
+
+      <div class="cart-bottom">
+        <div class="total">
+          <span>Total</span>
+          <strong id="cartTotal">0 DT</strong>
+        </div>
+
+        <a href="checkout.html" class="checkout-btn"> Commander </a>
+      </div>
+    </aside>
+
+    <div id="overlay" class="overlay" onclick="toggleCart()"></div>
+
+    <footer>
+      <strong>SOVA STORE</strong>
+
+      <p>Accessoires électroniques • Tunisie 🇹🇳</p>
+
+      <small>© 2026 SOVA Store</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/config.js"></script>
+    <script src="js/product.js"></script>
+  </body>
+</html>

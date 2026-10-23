@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Commande - SOVA Store</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <a class="logo" href="index.html"> SOVA. </a>
+
+      <a href="index.html"> ← Retour </a>
+    </header>
+
+    <main class="checkout-page">
+      <section class="checkout-form">
+        <span class="small"> SOVA STORE • TUNISIE </span>
+
+        <h1>Finaliser la commande</h1>
+
+        <p>Remplissez vos informations pour confirmer votre commande.</p>
+
+        <form id="checkoutForm">
+          <label>
+            Nom et prénom
+
+            <input
+              id="customerName"
+              type="text"
+              required
+              minlength="2"
+              placeholder="Votre nom"
+            />
+          </label>
+
+          <label>
+            Téléphone
+
+            <input
+              id="customerPhone"
+              type="tel"
+              required
+              minlength="8"
+              placeholder="Ex: 20123456"
+            />
+          </label>
+
+          <label>
+            Gouvernorat
+
+            <select id="customerGovernorate" required>
+              <option value="">Choisir...</option>
+
+              <option>Ariana</option>
+              <option>Béja</option>
+              <option>Ben Arous</option>
+              <option>Bizerte</option>
+              <option>Gabès</option>
+              <option>Gafsa</option>
+              <option>Jendouba</option>
+              <option>Kairouan</option>
+              <option>Kasserine</option>
+              <option>Kébili</option>
+              <option>Le Kef</option>
+              <option>Mahdia</option>
+              <option>La Manouba</option>
+              <option>Médenine</option>
+              <option>Monastir</option>
+              <option>Nabeul</option>
+              <option>Sfax</option>
+              <option>Sidi Bouzid</option>
+              <option>Siliana</option>
+              <option>Sousse</option>
+              <option>Tataouine</option>
+              <option>Tozeur</option>
+              <option>Tunis</option>
+              <option>Zaghouan</option>
+            </select>
+          </label>
+
+          <label>
+            Adresse de livraison
+
+            <textarea
+              id="customerAddress"
+              required
+              minlength="5"
+              placeholder="Ville, quartier, adresse..."
+            ></textarea>
+          </label>
+
+          <label>
+            Note (optionnel)
+
+            <textarea
+              id="customerNote"
+              placeholder="Informations supplémentaires..."
+            ></textarea>
+          </label>
+
+          <div class="payment-info">
+            <strong> Paiement à la livraison </strong>
+
+            <p>Aucun paiement en ligne n'est nécessaire.</p>
+          </div>
+
+          <button type="submit" id="confirmOrder" class="confirm">
+            Confirmer ma commande
+          </button>
+
+          <p id="orderError"></p>
+        </form>
+      </section>
+
+      <section class="checkout-summary">
+        <h2>Votre commande</h2>
+
+        <div id="checkoutItems">Chargement...</div>
+
+        <div class="total">
+          <span>Total</span>
+
+          <strong id="checkoutTotal"> 0 DT </strong>
+        </div>
+      </section>
+
+      <section id="orderSuccess" style="display: none">
+        <h2>✓ Commande confirmée</h2>
+
+        <p>
+          Votre numéro de commande est
+          <strong id="orderNumber"></strong>
+        </p>
+
+        <p>Nous vous contacterons pour confirmer la livraison.</p>
+
+        <a href="index.html" class="primary"> Retour à la boutique </a>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/config.js"></script>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>SOVA Admin</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="admin-page">
+    <section id="loginSection" class="login">
+      <form id="loginForm">
+        <h1>SOVA.</h1>
+
+        <h2>Administration</h2>
+
+        <label>
+          Email
+          <input id="adminEmail" type="email" required />
+        </label>
+
+        <label>
+          Mot de passe
+          <input id="adminPassword" type="password" required />
+        </label>
+
+        <button type="submit" class="confirm">Connexion</button>
+
+        <p id="loginError"></p>
+      </form>
+    </section>
+
+    <div id="dashboard" style="display: none">
+      <header>
+        <strong class="logo"> SOVA ADMIN </strong>
+
+        <button onclick="logout()">Déconnexion</button>
+      </header>
+
+      <main class="admin-container">
+        <h1>Dashboard</h1>
+
+        <div class="stats">
+          <div>
+            <span>Commandes</span>
+            <strong id="statOrders">0</strong>
+          </div>
+
+          <div>
+            <span>En attente</span>
+            <strong id="statPending">0</strong>
+          </div>
+
+          <div>
+            <span>Livrées</span>
+            <strong id="statDelivered">0</strong>
+          </div>
+
+          <div>
+            <span>CA livré</span>
+            <strong id="statRevenue">0 DT</strong>
+          </div>
+        </div>
+
+        <div class="admin-tabs">
+          <button onclick="showTab('orders')">Commandes</button>
+
+          <button onclick="showTab('products')">Produits</button>
+        </div>
+
+        <section id="ordersTab">
+          <h2>Commandes</h2>
+
+          <div id="ordersList"></div>
+        </section>
+
+        <section id="productsTab" style="display: none">
+          <div class="admin-title">
+            <h2>Produits</h2>
+
+            <button onclick="showProductForm()">+ Ajouter</button>
+          </div>
+
+          <form id="productForm" class="product-form">
+            <input type="hidden" id="productId" />
+
+            <label>
+              Nom
+              <input id="productName" required />
+            </label>
+
+            <label>
+              Catégorie
+              <input id="productCategory" required />
+            </label>
+
+            <label>
+              Prix (DT)
+              <input
+                id="productPrice"
+                type="number"
+                step="0.001"
+                min="0"
+                required
+              />
+            </label>
+
+            <label>
+              Image du produit
+
+              <input
+                id="productImageFile"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+              />
+            </label>
+
+            <div id="currentImage"></div>
+
+            <label>
+              Description
+              <textarea id="productDescription"></textarea>
+            </label>
+
+            <label class="check">
+              <input id="productActive" type="checkbox" checked />
+              Produit actif
+            </label>
+
+            <button type="submit" class="confirm">Enregistrer</button>
+          </form>
+
+          <div id="adminProducts"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/config.js"></script>
+    <script src="js/admin.js"></script>
+  </body>
+</html>
