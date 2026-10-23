@@ -41,16 +41,67 @@ async function loadProduct() {
   container.innerHTML = `
     <div class="product-detail">
 
-      <div class="product-detail-image">
-        ${
-          product.image_url
-            ? `<img
-                src="${escapeHTML(product.image_url)}"
-                alt="${escapeHTML(product.name)}"
-              >`
-            : `<div class="no-image">SOVA</div>`
-        }
-      </div>
+      <div class="product-gallery">
+
+  <div class="product-detail-image">
+    ${
+      product.image_url
+        ? `<img
+            id="mainProductImage"
+            src="${escapeHTML(product.image_url)}"
+            alt="${escapeHTML(product.name)}"
+          >`
+        : `<div class="no-image">SOVA</div>`
+    }
+  </div>
+
+  ${
+    product.image_url &&
+    product.images &&
+    product.images.length > 0
+      ? `
+        <div class="product-thumbnails">
+
+          <button
+            type="button"
+            class="product-thumbnail active"
+            onclick="changeProductImage(
+              '${escapeHTML(product.image_url)}',
+              this
+            )"
+          >
+            <img
+              src="${escapeHTML(product.image_url)}"
+              alt="${escapeHTML(product.name)}"
+            >
+          </button>
+
+          ${product.images
+            .map(
+              (image) => `
+                <button
+                  type="button"
+                  class="product-thumbnail"
+                  onclick="changeProductImage(
+                    '${escapeHTML(image)}',
+                    this
+                  )"
+                >
+                  <img
+                    src="${escapeHTML(image)}"
+                    alt="${escapeHTML(product.name)}"
+                  >
+                </button>
+              `
+            )
+            .join("")}
+
+        </div>
+      `
+      : ""
+  }
+
+</div>
 
       <div class="product-detail-content">
 
@@ -100,6 +151,22 @@ async function loadProduct() {
 
     </div>
   `;
+}
+
+function changeProductImage(imageUrl, button) {
+  const mainImage = document.getElementById("mainProductImage");
+
+  if (!mainImage) return;
+
+  mainImage.src = imageUrl;
+
+  document
+    .querySelectorAll(".product-thumbnail")
+    .forEach((thumbnail) => {
+      thumbnail.classList.remove("active");
+    });
+
+  button.classList.add("active");
 }
 
 function addToCart() {
