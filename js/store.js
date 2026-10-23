@@ -257,9 +257,20 @@ function renderCart() {
       .join("");
   }
 
-  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = cart.reduce(
+  (sum, item) => sum + item.price * item.quantity,
+  0
+);
 
-  document.getElementById("cartTotal").textContent = money(total);
+const deliveryFee = cart.length > 0 ? 8 : 0;
+
+const total = subtotal + deliveryFee;
+
+document.getElementById("cartSubtotal").textContent =
+  money(subtotal);
+
+document.getElementById("cartTotal").textContent =
+  money(total);
 }
 
 function toggleCart() {
