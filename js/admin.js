@@ -315,24 +315,78 @@ async function deleteProduct(id) {
 
   if (!confirmed) return;
 
-  const { error } = await db.rpc("delete_product", {
-    p_product_id: id,
-  });
+  try {
+    // 1. Récupérer le produit avant suppression
+    const { data: product, error: productError } = await db
+      .from("products")
+      .select("image_url, images")
+      .eq("id", id)
+      .single();
 
-  if (error) {
+    if (productError) {
+      throw productError;
+    }
+
+    // 2. Supprimer le produit de la base de données
+    const { error: deleteError } = await db.rpc("delete_product", {
+      p_product_id: id,
+    });
+
+    if (deleteError) {
+      throw deleteError;
+    }
+
+    // 3. Préparer toutes les images
+    const imageUrls = [
+      product.image_url,
+      ...(product.images || []),
+    ].filter(Boolean);
+
+    // 4. Extraire les chemins Storage
+    const storagePaths = imageUrls
+      .map(getProductImageStoragePath)
+      .filter(Boolean);
+
+    // 5. Supprimer les images du Storage
+    if (storagePaths.length > 0) {
+      const { error: storageError } = await db.storage
+        .from("product-images")
+        .remove(storagePaths);
+
+      if (storageError) {
+        console.error(
+          "Produit supprimé, mais certaines images n'ont pas pu être supprimées.",
+          storageError
+        );
+      }
+    }
+
+    alert("Produit supprimé avec succès ✓");
+
+    await loadAdminProducts();
+  } catch (error) {
     console.error(error);
 
     alert(
       "Impossible de supprimer le produit : " +
-      (error.message || "Erreur inconnue.")
+        (error.message || "Erreur inconnue.")
     );
+  }
+}
+function getProductImageStoragePath(url) {
+  if (!url) return null;
 
-    return;
+  const marker = "/product-images/";
+
+  const index = url.indexOf(marker);
+
+  if (index === -1) {
+    return null;
   }
 
-  alert("Produit supprimé avec succès ✓");
-
-  await loadAdminProducts();
+  return decodeURIComponent(
+    url.substring(index + marker.length)
+  );
 }
 function renderStats(orders) {
   const pending = orders.filter((o) => o.status === "pending").length;
