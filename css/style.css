@@ -1317,3 +1317,48 @@ textarea{
     gap: 8px;
   }
 }
+/* Admin extra product images */
+
+.admin-extra-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.admin-extra-image {
+  position: relative;
+  width: 90px;
+  height: 90px;
+}
+
+.admin-extra-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.admin-extra-image button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+
+  width: 25px;
+  height: 25px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #111;
+  color: white;
+
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
