@@ -98,9 +98,26 @@ function renderProducts() {
 
                 <div class="product-footer">
 
-                    <strong>
-                        ${money(product.price)}
-                    </strong>
+                    <div class="product-price">
+  <strong>
+    ${money(product.price)}
+  </strong>
+
+  ${
+    product.old_price &&
+    Number(product.old_price) > Number(product.price)
+      ? `
+        <span class="old-price">
+          ${money(product.old_price)}
+        </span>
+
+        <span class="promo-badge">
+          PROMO
+        </span>
+      `
+      : ""
+  }
+</div>
 
                     <button onclick="event.stopPropagation(); addToCart('${
                       product.id
