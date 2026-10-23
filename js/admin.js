@@ -449,6 +449,58 @@ document
       }
 
       // ====================================
+// IMAGES SUPPLÉMENTAIRES
+// ====================================
+
+let extraImageUrls = [];
+
+try {
+  extraImageUrls = JSON.parse(
+    event.target.dataset.currentExtraImages || "[]"
+  );
+} catch {
+  extraImageUrls = [];
+}
+
+for (const file of extraImageFiles) {
+  const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
+
+  if (!allowedTypes.includes(file.type)) {
+    throw new Error(
+      "Format d'une image supplémentaire non accepté. Utilisez JPG, PNG ou WEBP."
+    );
+  }
+
+  if (file.size > 5 * 1024 * 1024) {
+    throw new Error(
+      "Chaque image supplémentaire ne doit pas dépasser 5 MB."
+    );
+  }
+
+  const extension = file.name.split(".").pop().toLowerCase();
+
+  const fileName =
+    `products/${crypto.randomUUID()}.${extension}`;
+
+  const { error: uploadError } = await db.storage
+    .from("product-images")
+    .upload(fileName, file, {
+      cacheControl: "3600",
+      upsert: false,
+    });
+
+  if (uploadError) {
+    throw uploadError;
+  }
+
+  const { data: publicData } = db.storage
+    .from("product-images")
+    .getPublicUrl(fileName);
+
+  extraImageUrls.push(publicData.publicUrl);
+}
+
+      // ====================================
       // 4. PRÉPARER PRODUIT
       // ====================================
       const oldPriceValue =
@@ -465,6 +517,8 @@ document
         stock: 0,
 
         image_url: imageUrl,
+
+        images: extraImageUrls,
 
         description: document.getElementById("productDescription").value.trim(),
 
@@ -494,6 +548,8 @@ document
       event.target.reset();
 
       delete event.target.dataset.currentImage;
+
+      delete event.target.dataset.currentExtraImages;
 
       document.getElementById("productId").value = "";
 
@@ -538,6 +594,9 @@ function editProduct(product) {
   // Conserver l'image actuelle
   document.getElementById("productForm").dataset.currentImage =
     product.image_url || "";
+
+  document.getElementById("productForm").dataset.currentExtraImages =
+  JSON.stringify(product.images || []);
 
   // Afficher l'image actuelle
   const preview = document.getElementById("currentImage");
@@ -608,6 +667,8 @@ function showProductForm() {
   document.getElementById("currentImage").innerHTML = "";
 
   delete form.dataset.currentImage;
+
+  delete form.dataset.currentExtraImages;
 
   form.scrollIntoView({
     behavior: "smooth",
