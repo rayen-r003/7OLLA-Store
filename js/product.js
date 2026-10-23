@@ -188,7 +188,7 @@ function addToCart() {
 
   saveCart();
 
-  alert("Produit ajouté au panier ✓");
+  showToast("✓ Produit ajouté au panier");
 }
 
 function saveCart() {
