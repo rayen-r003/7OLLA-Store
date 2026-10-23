@@ -60,12 +60,15 @@ async function checkAdmin() {
     return;
   }
 
-  const { data, error } = await db
-    .from("admins")
-    .select("user_id")
-    .eq("user_id", user.id)
-    .maybeSingle();
+ const { data, error } = await db
+  .from("admins")
+  .select("user_id")
+  .eq("user_id", user.id)
+  .maybeSingle();
 
+console.log("AUTH USER:", user);
+console.log("ADMIN DATA:", data);
+console.log("ADMIN ERROR:", error);
   if (error || !data) {
     await db.auth.signOut();
 
