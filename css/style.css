@@ -1445,9 +1445,3 @@ textarea{
 .delete-product:hover {
   opacity: 0.85;
 }
-.logo-img {
-  height: 55px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
