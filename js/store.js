@@ -96,10 +96,6 @@ function renderProducts() {
                     ${escapeHTML(product.name)}
                 </h3>
 
-                <p>
-                    ${escapeHTML(product.description || "")}
-                </p>
-
                 <div class="product-footer">
 
                     <strong>
