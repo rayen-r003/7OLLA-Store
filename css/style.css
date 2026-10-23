@@ -1427,3 +1427,21 @@ textarea{
   font-size: 13px;
   color: #666;
 }
+.admin-product-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.delete-product {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 9px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.delete-product:hover {
+  opacity: 0.85;
+}
