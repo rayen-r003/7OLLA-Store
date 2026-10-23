@@ -361,7 +361,11 @@ console.log("Storage paths :", storagePaths);
 if (storagePaths.length > 0) {
   console.log("Suppression Storage...");
   console.log("Paths envoyés :", storagePaths);
+  const testResult = await db.storage
+  .from("product-images")
+  .remove(["products/03581289-5b81-4598-8365-976ed5236ba9.jpeg"]);
 
+console.log("TEST SUPPRESSION :", testResult);
   const result = await db.storage
     .from("product-images")
     .remove(storagePaths);
