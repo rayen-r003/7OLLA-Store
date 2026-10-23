@@ -447,13 +447,16 @@ document
       // ====================================
       // 4. PRÉPARER PRODUIT
       // ====================================
-
+      const oldPriceValue =
+      document.getElementById("productOldPrice").value;
       const product = {
         name: document.getElementById("productName").value.trim(),
 
         category: document.getElementById("productCategory").value.trim(),
 
         price: Number(document.getElementById("productPrice").value),
+
+        old_price: oldPriceValue ? Number(oldPriceValue) : null,
 
         stock: 0,
 
@@ -519,6 +522,9 @@ function editProduct(product) {
   document.getElementById("productCategory").value = product.category;
 
   document.getElementById("productPrice").value = product.price;
+
+  document.getElementById("productOldPrice").value =
+  product.old_price ?? "";
 
   document.getElementById("productDescription").value =
     product.description || "";
