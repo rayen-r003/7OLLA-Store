@@ -62,9 +62,28 @@ async function loadProduct() {
           ${escapeHTML(product.name)}
         </h1>
 
-        <strong class="product-detail-price">
-          ${money(product.price)}
-        </strong>
+        <div class="product-detail-prices">
+
+          <strong class="product-detail-price">
+            ${money(product.price)}
+          </strong>
+
+        ${
+          product.old_price &&
+          Number(product.old_price) > Number(product.price)
+            ? `
+              <span class="old-price">
+                ${money(product.old_price)}
+              </span>
+      
+              <span class="promo-badge">
+                PROMO
+              </span>
+            `
+            : ""
+        }
+      
+      </div>
 
         <p class="product-detail-description">
           ${escapeHTML(product.description || "")}
