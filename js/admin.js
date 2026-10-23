@@ -363,13 +363,25 @@ async function loadAdminProducts() {
             </div>
 
 
-            <button
-                onclick='editProduct(
-                    ${JSON.stringify(product).replaceAll("'", "&#39;")}
-                )'
-            >
-                Modifier
-            </button>
+            <div class="admin-product-actions">
+
+  <button
+    onclick='editProduct(
+      ${JSON.stringify(product).replaceAll("'", "&#39;")}
+    )'
+  >
+    Modifier
+  </button>
+
+  <button
+    type="button"
+    class="delete-product"
+    onclick="deleteProduct('${product.id}')"
+  >
+    Supprimer
+  </button>
+
+</div>
 
         </div>
 
