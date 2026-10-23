@@ -557,6 +557,8 @@ for (const file of extraImageFiles) {
 
       document.getElementById("currentImage").innerHTML = "";
 
+      document.getElementById("currentExtraImages").innerHTML = "";
+
       await loadAdminProducts();
 
       alert(
@@ -573,7 +575,63 @@ for (const file of extraImageFiles) {
       button.textContent = "Enregistrer";
     }
   });
+function renderCurrentExtraImages(images) {
+  const container = document.getElementById("currentExtraImages");
 
+  if (!images || images.length === 0) {
+    container.innerHTML = "";
+    return;
+  }
+
+  container.innerHTML = `
+    <p>Images supplémentaires :</p>
+
+    <div class="admin-extra-images">
+      ${images
+        .map(
+          (image, index) => `
+            <div class="admin-extra-image">
+
+              <img
+                src="${escapeHTML(image)}"
+                alt="Image supplémentaire"
+              >
+
+              <button
+                type="button"
+                onclick="removeExtraImage(${index})"
+                title="Supprimer"
+              >
+                ✕
+              </button>
+
+            </div>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+}
+function removeExtraImage(index) {
+  const form = document.getElementById("productForm");
+
+  let images = [];
+
+  try {
+    images = JSON.parse(
+      form.dataset.currentExtraImages || "[]"
+    );
+  } catch {
+    images = [];
+  }
+
+  images.splice(index, 1);
+
+  form.dataset.currentExtraImages =
+    JSON.stringify(images);
+
+  renderCurrentExtraImages(images);
+}
 function editProduct(product) {
   document.getElementById("productId").value = product.id;
 
@@ -598,6 +656,8 @@ function editProduct(product) {
   document.getElementById("productForm").dataset.currentExtraImages =
   JSON.stringify(product.images || []);
 
+  renderCurrentExtraImages(product.images || []);
+
   // Afficher l'image actuelle
   const preview = document.getElementById("currentImage");
 
@@ -621,12 +681,68 @@ function editProduct(product) {
     preview.innerHTML = "<p>Aucune image actuelle.</p>";
   }
 
+  const extraPreview = document.getElementById("currentExtraImages");
+
+const extraImages = product.images || [];
+
+if (extraImages.length > 0) {
+  extraPreview.innerHTML = `
+    <p>Images supplémentaires :</p>
+
+    <div class="admin-extra-images">
+      ${extraImages
+        .map(
+          (image, index) => `
+            <div class="admin-extra-image">
+
+              <img
+                src="${escapeHTML(image)}"
+                alt="Image supplémentaire"
+              >
+
+              <button
+                type="button"
+                onclick="removeExtraImage(${index})"
+              >
+                ✕
+              </button>
+
+            </div>
+          `
+        )
+        .join("")}
+    </div>
+  `;
+} else {
+  extraPreview.innerHTML = "";
+}
+
   // Vider le sélecteur
   document.getElementById("productImageFile").value = "";
 
   document.getElementById("productForm").scrollIntoView({
     behavior: "smooth",
   });
+}
+function removeExtraImage(index) {
+  const form = document.getElementById("productForm");
+
+  let images = [];
+
+  try {
+    images = JSON.parse(
+      form.dataset.currentExtraImages || "[]"
+    );
+  } catch {
+    images = [];
+  }
+
+  images.splice(index, 1);
+
+  form.dataset.currentExtraImages =
+    JSON.stringify(images);
+
+  renderCurrentExtraImages(images);
 }
 function showOrders() {
   document.getElementById("ordersSection").style.display = "block";
@@ -665,6 +781,8 @@ function showProductForm() {
   document.getElementById("productActive").checked = true;
 
   document.getElementById("currentImage").innerHTML = "";
+
+  document.getElementById("currentExtraImages").innerHTML = "";
 
   delete form.dataset.currentImage;
 
