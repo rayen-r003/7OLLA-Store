@@ -353,10 +353,7 @@ async function deleteProduct(id) {
       .map(getProductImageStoragePath)
       .filter(Boolean);
 
-    // 5. Supprimer les images du Storage
-    const storagePaths = imageUrls
-  .map(getProductImageStoragePath)
-  .filter(Boolean);
+   
 
 console.log("Images URLs :", imageUrls);
 console.log("Storage paths :", storagePaths);
