@@ -1221,3 +1221,32 @@ textarea{
   .checkout-delivery strong {
     color: #111;
   }
+/* Promotions */
+
+.product-price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.product-price strong {
+  font-size: 18px;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.promo-badge {
+  background: #111;
+  color: white;
+  padding: 4px 7px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
