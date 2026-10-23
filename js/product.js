@@ -139,7 +139,14 @@ async function loadProduct() {
         <p class="product-detail-description">
           ${escapeHTML(product.description || "")}
         </p>
+        <div class="delivery-info">
+  <span>🚚</span>
 
+  <div>
+    <strong>Livraison partout en Tunisie</strong>
+    <small>Frais de livraison : 8 DT</small>
+  </div>
+</div>
         <button
           class="primary"
           onclick="addToCart()"
