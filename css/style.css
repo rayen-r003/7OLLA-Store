@@ -1393,3 +1393,37 @@ textarea{
   visibility: visible;
   transform: translate(-50%, 0);
 }
+/* Delivery information */
+
+.delivery-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 16px;
+  margin-bottom: 20px;
+
+  background: #f7f7f7;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+}
+
+.delivery-info > span {
+  font-size: 22px;
+}
+
+.delivery-info div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.delivery-info strong {
+  font-size: 14px;
+  color: #111;
+}
+
+.delivery-info small {
+  font-size: 13px;
+  color: #666;
+}
