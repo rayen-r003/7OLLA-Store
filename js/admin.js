@@ -30,10 +30,13 @@ document
 
     const password = document.getElementById("adminPassword").value;
 
-    const { error } = await db.auth.signInWithPassword({
-      email,
-      password,
-    });
+    const { data, error } = await db.auth.signInWithPassword({
+  email,
+  password,
+});
+
+console.log("LOGIN DATA:", data);
+console.log("LOGIN ERROR:", error);
 
     if (error) {
       document.getElementById("loginError").textContent =
