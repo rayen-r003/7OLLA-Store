@@ -162,7 +162,7 @@ function addToCart(id) {
       quantity: 1,
     });
   }
-
+  showToast("✓ Produit ajouté au panier");
   saveCart();
 }
 
@@ -267,7 +267,20 @@ function toggleCart() {
 
   document.getElementById("overlay").classList.toggle("show");
 }
+function showToast(message) {
+  const toast = document.getElementById("toast");
 
+  if (!toast) return;
+
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(window.sovaToastTimer);
+
+  window.sovaToastTimer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2000);
+}
 function money(value) {
   return (
     Number(value)
