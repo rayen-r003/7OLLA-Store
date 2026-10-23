@@ -308,7 +308,32 @@ async function deleteOrder(id) {
 
   await loadOrders();
 }
+async function deleteProduct(id) {
+  const confirmed = confirm(
+    "Voulez-vous vraiment supprimer ce produit ?\nCette action est irréversible."
+  );
 
+  if (!confirmed) return;
+
+  const { error } = await db.rpc("delete_product", {
+    p_product_id: id,
+  });
+
+  if (error) {
+    console.error(error);
+
+    alert(
+      "Impossible de supprimer le produit : " +
+      (error.message || "Erreur inconnue.")
+    );
+
+    return;
+  }
+
+  alert("Produit supprimé avec succès ✓");
+
+  await loadAdminProducts();
+}
 function renderStats(orders) {
   const pending = orders.filter((o) => o.status === "pending").length;
 
