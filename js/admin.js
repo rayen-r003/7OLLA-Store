@@ -389,6 +389,10 @@ document
 
     const imageFile = document.getElementById("productImageFile").files[0];
 
+    const extraImageFiles = Array.from(
+  document.getElementById("productExtraImages").files
+);
+
     button.disabled = true;
     button.textContent = "Enregistrement...";
 
