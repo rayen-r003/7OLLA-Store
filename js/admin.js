@@ -361,22 +361,26 @@ console.log("Storage paths :", storagePaths);
 if (storagePaths.length > 0) {
   console.log("Suppression Storage...");
   console.log("Paths envoyés :", storagePaths);
-  const testResult = await db.storage
-  .from("product-images")
-  .remove(["products/03581289-5b81-4598-8365-976ed5236ba9.jpeg"]);
 
-console.log("TEST SUPPRESSION :", testResult);
-  const result = await db.storage
-    .from("product-images")
-    .remove(storagePaths);
+  const { data, error } = await db.rpc(
+    "delete_product_images",
+    {
+      p_paths: storagePaths,
+    }
+  );
 
-  console.log("Résultat suppression Storage :", result);
+  console.log("Résultat suppression Storage :", data);
+  console.log("Erreur suppression Storage :", error);
 
-  if (result.error) {
-    console.error("Erreur suppression Storage :", result.error);
-    alert("Erreur Storage : " + result.error.message);
+  if (error) {
+    console.error("Erreur suppression Storage :", error);
+
+    alert(
+      "Le produit a été supprimé, mais les images n'ont pas pu être supprimées.\n\n" +
+        error.message
+    );
   } else {
-    console.log("Images supprimées :", result.data);
+    console.log("Nombre d'images supprimées :", data);
   }
 }
 
