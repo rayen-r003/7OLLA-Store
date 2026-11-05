@@ -1712,3 +1712,14 @@ body:has(.hero) .hero .primary:hover {
         font-size: 12px;
     }
 }
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 55px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
