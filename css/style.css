@@ -1724,6 +1724,7 @@ header .logo img {
   height: 90px;
   width: 90px;
   object-fit: contain;
+  border-radius : 0.5 ;
 }
 
 header .logo span {
