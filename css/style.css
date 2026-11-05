@@ -1445,3 +1445,193 @@ textarea{
 .delete-product:hover {
   opacity: 0.85;
 }
+
+
+
+/* =========================================
+   7OLLA STORE - HOMEPAGE JEWELRY COLOR THEME
+   Scoped to the homepage only (the page containing .hero)
+   Palette: Ivory / Champagne Gold / Warm Beige / Espresso
+========================================= */
+
+body:has(.hero) {
+    background: #faf7f2;
+    color: #35291f;
+}
+
+body:has(.hero) header {
+    background: #fffdf9;
+    border-bottom: 1px solid #eadfce;
+}
+
+body:has(.hero) .logo {
+    color: #4a3527;
+}
+
+body:has(.hero) .cart-button,
+body:has(.hero) header button {
+    background: #6b4b35;
+    color: #fffaf2;
+}
+
+body:has(.hero) .cart-button:hover,
+body:has(.hero) .product-footer button:hover {
+    background: #8a674b;
+}
+
+body:has(.hero) .hero {
+    background: linear-gradient(115deg, #3f2d23 0%, #6b4b35 58%, #9a7957 100%);
+    color: #fffaf2;
+}
+
+body:has(.hero) .hero p {
+    color: #eadbca;
+}
+
+body:has(.hero) .small {
+    color: #e5c99f;
+}
+
+body:has(.hero) .primary {
+    background: #e5c99f;
+    color: #3f2d23;
+}
+
+body:has(.hero) .primary:hover {
+    background: #f0dcb9;
+}
+
+body:has(.hero) .section {
+    color: #35291f;
+}
+
+body:has(.hero) .title p,
+body:has(.hero) .muted {
+    color: #887765;
+}
+
+body:has(.hero) .tools input,
+body:has(.hero) .tools select {
+    background: #fffdf9;
+    border-color: #e6d8c6;
+    color: #49382b;
+}
+
+body:has(.hero) .tools input:focus,
+body:has(.hero) .tools select:focus {
+    border-color: #b58b5b;
+    box-shadow: 0 0 0 3px rgba(181, 139, 91, 0.14);
+}
+
+body:has(.hero) .tools input::placeholder {
+    color: #a79582;
+}
+
+body:has(.hero) .product {
+    background: #fffdf9;
+    border-color: #eadfce;
+    box-shadow: 0 5px 18px rgba(76, 54, 36, 0.045);
+}
+
+body:has(.hero) .product:hover {
+    box-shadow: 0 12px 28px rgba(76, 54, 36, 0.10);
+}
+
+body:has(.hero) .image,
+body:has(.hero) .no-image {
+    background: #f1e9de;
+    color: #8a674b;
+}
+
+body:has(.hero) .product-content small {
+    color: #9a826b;
+}
+
+body:has(.hero) .product-content h3 {
+    color: #49382b;
+}
+
+body:has(.hero) .product-content p {
+    color: #887765;
+}
+
+body:has(.hero) .product-footer button {
+    background: #6b4b35;
+    color: #fffaf2;
+}
+
+body:has(.hero) .old-price {
+    color: #a79582;
+}
+
+body:has(.hero) .promo-badge {
+    background: #d8b77e;
+    color: #3f2d23;
+}
+
+body:has(.hero) .overlay {
+    background: rgba(43, 30, 21, 0.48);
+}
+
+body:has(.hero) .cart {
+    background: #fffdf9;
+    color: #49382b;
+}
+
+body:has(.hero) .cart-item {
+    border-bottom-color: #eadfce;
+}
+
+body:has(.hero) .cart-item p,
+body:has(.hero) .empty {
+    color: #887765;
+}
+
+body:has(.hero) .qty button {
+    border-color: #e2d3c0;
+    background: #faf7f2;
+    color: #49382b;
+}
+
+body:has(.hero) .checkout-btn {
+    background: #6b4b35;
+    color: #fffaf2;
+}
+
+body:has(.hero) footer {
+    background: #35251c;
+    color: #fffaf2;
+}
+
+body:has(.hero) footer p,
+body:has(.hero) footer small {
+    color: #d2bda6;
+}
+
+body:has(.hero) .delivery-info {
+    background: #f4ede3;
+    border-color: #e6d8c6;
+}
+
+body:has(.hero) .delivery-info strong {
+    color: #49382b;
+}
+
+body:has(.hero) .delivery-info small {
+    color: #887765;
+}
+
+body:has(.hero) .toast {
+    background: #6b4b35;
+    color: #fffaf2;
+}
+
+body:has(.hero) .delete {
+    color: #b45345;
+}
+
+@media (max-width: 768px) {
+    body:has(.hero) .hero {
+        background: linear-gradient(145deg, #3f2d23 0%, #76563d 100%);
+    }
+}
