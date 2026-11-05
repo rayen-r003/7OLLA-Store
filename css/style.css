@@ -1718,8 +1718,11 @@ header .logo {
 }
 
 header .logo img {
-  height: 55px;
-  width: auto;
+  display: block !important;
+  height: 70px !important;
+  width: auto !important;
+  max-width: 180px;
   object-fit: contain;
-  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
