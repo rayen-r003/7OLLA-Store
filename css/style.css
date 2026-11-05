@@ -1479,11 +1479,6 @@ body:has(.hero) .product-footer button:hover {
     background: #8a674b;
 }
 
-body:has(.hero) .hero {
-    background: linear-gradient(115deg, #3f2d23 0%, #6b4b35 58%, #9a7957 100%);
-    color: #fffaf2;
-}
-
 body:has(.hero) .hero p {
     color: #eadbca;
 }
@@ -1630,314 +1625,9 @@ body:has(.hero) .delete {
     color: #b45345;
 }
 
-@media (max-width: 768px) {
-    body:has(.hero) .hero {
-        background: linear-gradient(145deg, #3f2d23 0%, #76563d 100%);
-    }
-}
-/* ===== HERO LUXURY DESIGN ===== */
-
-.hero {
-  min-height: 560px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 8%;
-  background: linear-gradient(110deg, #3b2117, #603b29, #754b35);
-  color: #f4dfb5;
-}
-
-.hero-content {
-  width: 100%;
-  max-width: 1100px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 50px;
-}
-
-/* Logo */
-.hero-brand {
-  text-align: center;
-  color: #e8c58c;
-}
-
-.hero-brand .diamond {
-  font-size: 75px;
-  line-height: 1;
-  font-weight: 300;
-  margin-bottom: 5px;
-}
-
-.hero-brand h1 {
-  font-family: Georgia, serif;
-  font-size: clamp(65px, 9vw, 105px);
-  font-weight: 400;
-  letter-spacing: 5px;
-  margin: 0;
-}
-
-.brand-line {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-top: -5px;
-}
-
-.brand-line span {
-  width: 65px;
-  height: 1px;
-  background: #d9b477;
-}
-
-.brand-line p {
-  font-family: Georgia, serif;
-  font-size: 38px;
-  font-style: italic;
-  margin: 0;
-}
-
-/* Text on right */
-.hero-text {
-  text-align: left;
-}
-
-.hero-text .small {
-  color: #e6c99c;
-  font-size: 14px;
-  letter-spacing: 3px;
-}
-
-.hero-text > p {
-  color: #fff4e5;
-  font-size: 25px;
-  margin: 25px 0;
-}
-
-.hero-text .primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 17px 32px;
-  background: #f1dfbd;
-  color: #43291d;
-  border-radius: 40px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-.hero-text .primary:hover {
-  background: #dfbd83;
-  transform: translateY(-3px);
-}
-
-.hero-text .primary span {
-  font-size: 25px;
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  .hero {
-    min-height: 520px;
-    padding: 45px 25px;
-  }
-
-  .hero-content {
-    grid-template-columns: 1fr;
-    gap: 45px;
-    text-align: center;
-  }
-
-  .hero-brand h1 {
-    font-size: 75px;
-  }
-
-  .hero-text {
-    text-align: center;
-  }
-
-  .hero-text .small {
-    font-size: 11px;
-    letter-spacing: 2px;
-  }
-}
-/* ===== 7OLLA HERO BACKGROUND ===== */
-
-.hero {
-  min-height: 520px;
-  background-image: url("../image/hero-background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  padding: 50px 8%;
-  box-sizing: border-box;
-}
-
-.hero-text {
-  width: 42%;
-  text-align: center;
-  color: #f5dfb8;
-}
-
-.hero-text .small {
-  font-size: 17px;
-  letter-spacing: 3px;
-  color: #f0d29c;
-}
-
-.hero-text > p {
-  font-size: 28px;
-  color: #fff4e5;
-  margin: 25px 0 35px;
-}
-
-.hero-text .primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  padding: 17px 32px;
-  border-radius: 40px;
-  background: #f1d9ae;
-  color: #432719;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.hero-text .primary:hover {
-  background: #dfbd83;
-  transform: translateY(-3px);
-}
-
-.hero-text .primary span {
-  font-size: 24px;
-}
-
-/* Téléphone */
-@media (max-width: 700px) {
-  .hero {
-    min-height: 420px;
-    padding: 30px 15px;
-    background-position: center;
-  }
-
-  .hero-text {
-    width: 48%;
-  }
-
-  .hero-text .small {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-
-  .hero-text > p {
-    font-size: 20px;
-    margin: 18px 0;
-  }
-
-  .hero-text .primary {
-    padding: 12px 16px;
-    font-size: 12px;
-    gap: 8px;
-  }
-}
 /* =========================================
    7OLLA STORE - HERO BACKGROUND
-   ========================================= */
-
-.hero {
-    min-height: 520px;
-    padding: 50px 8%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    background-image: url("../image/Fond luxueux chocolat et or pour joaillerie.png");
-    background-color: #3b1d10;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #f7e5c5;
-}
-
-.hero > div {
-    width: 42%;
-    max-width: 520px;
-    text-align: center;
-}
-
-.hero .small {
-    color: #f0d29c;
-    font-size: 14px;
-    letter-spacing: 2px;
-}
-
-.hero p {
-    color: #fff4e5;
-    font-size: 28px;
-    line-height: 1.5;
-    margin: 24px 0 32px;
-}
-
-.hero .primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 16px 30px;
-    border-radius: 40px;
-    background: #f1d9ae;
-    color: #432719;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background .2s ease, transform .2s ease;
-}
-
-.hero .primary:hover {
-    background: #dfbd83;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 700px) {
-    .hero {
-        min-height: 430px;
-        padding: 30px 14px;
-        background-position: center;
-    }
-
-    .hero > div {
-        width: 48%;
-    }
-
-    .hero .small {
-        font-size: 10px;
-        letter-spacing: 1px;
-    }
-
-    .hero p {
-        font-size: 19px;
-        margin: 18px 0 22px;
-    }
-
-    .hero .primary {
-        gap: 7px;
-        padding: 12px 14px;
-        font-size: 12px;
-    }
-}
-
-
-/* =========================================
-   FINAL HERO FIX - 7OLLA STORE
-   Uses: image/hero-background.png
-   This block intentionally comes last to override
-   older hero gradients and background declarations.
+   Image file: image/hero-background.png
 ========================================= */
 
 body:has(.hero) .hero {
@@ -1946,19 +1636,18 @@ body:has(.hero) .hero {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    box-sizing: border-box;
 
     background-color: #3b1d10;
-    background-image: url("../image/hero-background.png") !important;
+    background-image: url("../image/hero-background.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
     color: #f7e5c5;
-    box-sizing: border-box;
 }
 
-body:has(.hero) .hero > div,
-body:has(.hero) .hero .hero-text {
+body:has(.hero) .hero > div {
     width: 42%;
     max-width: 520px;
     text-align: center;
@@ -2000,12 +1689,10 @@ body:has(.hero) .hero .primary:hover {
     body:has(.hero) .hero {
         min-height: 430px;
         padding: 30px 14px;
-        background-image: url("../image/hero-background.png") !important;
         background-position: center;
     }
 
-    body:has(.hero) .hero > div,
-    body:has(.hero) .hero .hero-text {
+    body:has(.hero) .hero > div {
         width: 48%;
     }
 
