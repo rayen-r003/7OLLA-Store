@@ -1773,3 +1773,17 @@ header .logo span {
   }
 
 }
+/* MOBILE HERO AND PRODUCTS SPACING */
+
+@media (max-width: 700px) {
+
+  body:has(.hero) .hero {
+    min-height: 360px;
+    background-position: left center;
+  }
+
+  body:has(.hero) .section {
+    padding-top: 38px;
+  }
+
+}
