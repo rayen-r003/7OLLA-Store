@@ -1767,7 +1767,7 @@ body:has(.hero) .delete {
 
 .hero {
   min-height: 520px;
-  background-image: url("../images/hero-background.png");
+  background-image: url("../image/hero-background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
