@@ -1848,3 +1848,86 @@ body:has(.hero) .delete {
     gap: 8px;
   }
 }
+/* =========================================
+   7OLLA STORE - HERO BACKGROUND
+   ========================================= */
+
+.hero {
+    min-height: 520px;
+    padding: 50px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url("../image/Fond luxueux chocolat et or pour joaillerie.png");
+    background-color: #3b1d10;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #f7e5c5;
+}
+
+.hero > div {
+    width: 42%;
+    max-width: 520px;
+    text-align: center;
+}
+
+.hero .small {
+    color: #f0d29c;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    color: #fff4e5;
+    font-size: 28px;
+    line-height: 1.5;
+    margin: 24px 0 32px;
+}
+
+.hero .primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 16px 30px;
+    border-radius: 40px;
+    background: #f1d9ae;
+    color: #432719;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.hero .primary:hover {
+    background: #dfbd83;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+    .hero {
+        min-height: 430px;
+        padding: 30px 14px;
+        background-position: center;
+    }
+
+    .hero > div {
+        width: 48%;
+    }
+
+    .hero .small {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .hero p {
+        font-size: 19px;
+        margin: 18px 0 22px;
+    }
+
+    .hero .primary {
+        gap: 7px;
+        padding: 12px 14px;
+        font-size: 12px;
+    }
+}
