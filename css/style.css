@@ -1787,3 +1787,11 @@ header .logo span {
   }
 
 }
+/* FINAL MOBILE HERO POSITION */
+
+@media (max-width: 700px) {
+  body:has(.hero) .hero {
+    background-position: 30% center !important;
+    min-height: 360px !important;
+  }
+}
