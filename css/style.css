@@ -1689,7 +1689,7 @@ body:has(.hero) .hero .primary:hover {
     body:has(.hero) .hero {
         min-height: 430px;
         padding: 30px 14px;
-        background-position: left center;
+        background-position: 30% center;
     }
 
     body:has(.hero) .hero > div {
