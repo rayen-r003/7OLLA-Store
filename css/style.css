@@ -1779,7 +1779,7 @@ header .logo span {
 
   body:has(.hero) .hero {
     min-height: 360px;
-    background-position: left center;
+    background-position: 30% center;
   }
 
   body:has(.hero) .section {
