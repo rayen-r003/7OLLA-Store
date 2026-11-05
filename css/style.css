@@ -1733,3 +1733,43 @@ header .logo span {
   letter-spacing: 2px;
   color: #35291f;
 }
+/* MOBILE HEADER FIX */
+
+@media (max-width: 600px) {
+
+  header {
+    height: auto;
+    min-height: 76px;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  header .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  header .logo img {
+    width: 55px !important;
+    height: 55px !important;
+    flex-shrink: 0;
+    border-radius: 0 !important;
+  }
+
+  header .logo span {
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .cart-button {
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+}
